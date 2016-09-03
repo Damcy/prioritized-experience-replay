@@ -12,9 +12,10 @@ import utility
 
 class BinaryHeap(object):
 
-    def __init__(self, priority_size=100, priority_init=None):
+    def __init__(self, priority_size=100, priority_init=None, replace=True):
         self.e2p = {}
         self.p2e = {}
+        self.replace = replace
 
         if priority_init is None:
             self.priority_queue = {}
@@ -54,7 +55,7 @@ class BinaryHeap(object):
         return to_string
 
     def check_full(self):
-        return self.size == self.max_size
+        return self.size > self.max_size
 
     def _insert(self, priority, e_id):
         """
@@ -64,11 +65,14 @@ class BinaryHeap(object):
         :param e_id: experience id
         :return: bool
         """
-        if self.check_full():
+        self.size += 1
+        
+        if self.check_full() and not self.replace:
             sys.stderr.write('Error: no space left to add experience id %d with priority value %f\n' % (e_id, priority))
             return False
+        else:
+            self.size = min(self.size, self.max_size)
 
-        self.size += 1
         self.priority_queue[self.size] = (priority, e_id)
         self.p2e[self.size] = e_id
         self.e2p[e_id] = self.size
