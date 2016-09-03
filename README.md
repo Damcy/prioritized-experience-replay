@@ -16,3 +16,6 @@ not implement yet
 
 ### Application
 1. TEST1 PASSED: These code has been applied to my own NLP DQN experiment, it significantly improves performance.
+
+### TO DO LIST
+1. proportional method, if anyone would like to do this part, please let me know.
