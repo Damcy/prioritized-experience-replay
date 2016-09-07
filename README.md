@@ -6,6 +6,23 @@
 
 ### Rank-based
 use binary heap tree as priority queue, and build an Experience class to store and retrieve the sample
+  
+    Interface:
+    * All interfaces are in rank_based.py
+    * init conf, please read Experience.__init__ for more detail, all parameters can be set by input conf
+    * replay sample store: Experience.store
+    	params: [in] experience, sample to store
+    	returns: bools, True for success, False for failed
+    * replay sample sample: Experience.sample
+    	params: [in] global_step, used for cal beta
+    	returns: 
+    		experience, list of samples
+    		w, list of weight
+    		rank_e_id, list of experience's id, used for update priority value
+    * update priority value: Experience.update
+    	params: 
+    		[in] indices, rank_e_ids
+    		[in] delta, new TD-error
 
 ### Proportional
 not implement yet
