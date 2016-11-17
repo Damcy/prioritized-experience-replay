@@ -21,7 +21,7 @@ def test():
     # insert
     print('\ntest insert')
     for p, i in test_data:
-        BH.insert(p, i)
+        BH.update(p, i)
     print(BH)
     print(BH.p2e)
     print(BH.e2p)
@@ -46,7 +46,7 @@ def test():
 
     # full insert
     print('\ntest full insert')
-    BH.insert(9.2, 7)
+    BH.update(9.2, 7)
     print(BH)
 
     # pop
