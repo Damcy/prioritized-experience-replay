@@ -157,7 +157,7 @@ class Experience(object):
 
         dist_index = math.floor(self.record_size / self.size * self.partition_num)
         # issue 1 by @camigord
-        partition_size = math.floor(self.size / n_partitions)
+        partition_size = math.floor(self.size / self.partition_num)
         partition_max = dist_index * self.partition_size
         distribution = self.distributions[dist_index]
         rank_list = []
