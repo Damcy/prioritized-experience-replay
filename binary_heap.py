@@ -119,6 +119,7 @@ class BinaryHeap(object):
             return False, False
 
         pop_priority, pop_e_id = self.priority_queue[1]
+        self.e2p[pop_e_id] = -1
         # replace first
         last_priority, last_e_id = self.priority_queue[self.size]
         self.priority_queue[1] = (last_priority, last_e_id)
@@ -181,14 +182,14 @@ class BinaryHeap(object):
         get all priority value
         :return: list of priority
         """
-        return list(map(lambda x: x[0], self.priority_queue.values()))
+        return list(map(lambda x: x[0], self.priority_queue.values()))[0:self.size]
 
     def get_e_id(self):
         """
         get all experience id in priority queue
         :return: list of experience ids order by their priority
         """
-        return list(map(lambda x: x[1], self.priority_queue.values()))
+        return list(map(lambda x: x[1], self.priority_queue.values()))[0:self.size]
 
     def balance_tree(self):
         """
