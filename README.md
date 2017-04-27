@@ -26,7 +26,7 @@ use binary heap tree as priority queue, and build an Experience class to store a
     		[in] delta, new TD-error
 
 ### Proportional
-not implement yet
+you can find the implementation here: [proportional](https://github.com/takoika/PrioritizedExperienceReplay)
 
 ### Reference
 1. "Prioritized Experience Replay" http://arxiv.org/abs/1511.05952
@@ -34,6 +34,3 @@ not implement yet
 
 ### Application
 1. TEST1 PASSED: These code has been applied to my own NLP DQN experiment, it significantly improves performance.
-
-### TO DO LIST
-1. proportional method, if anyone would like to do this part, please let me know.
