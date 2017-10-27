@@ -33,4 +33,4 @@ you can find the implementation here: [proportional](https://github.com/takoika/
 2. [Atari](https://github.com/Kaixhin/Atari) by @Kaixhin, Atari uses torch to implement rank-based algorithm.
 
 ### Application
-1. TEST1 PASSED: These code has been applied to my own NLP DQN experiment, it significantly improves performance.
+1. TEST1 PASSED: These code has been applied to my own NLP DQN experiment, it significantly improves performance. See [here](https://github.com/Damcy/cascadeLSTMDRL) for more detail.
