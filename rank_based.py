@@ -35,7 +35,7 @@ class Experience(object):
         self.priority_queue = binary_heap.BinaryHeap(self.priority_size)
         self.distributions = self.build_distributions()
 
-        self.beta_grad = (1 - self.beta_zero) / (self.total_steps - self.learn_start)
+        self.beta_grad = (1 - self.beta_zero) / float(self.total_steps - self.learn_start)
 
     def build_distributions(self):
         """
@@ -47,7 +47,7 @@ class Experience(object):
         n_partitions = self.partition_num
         partition_num = 1
         # each part size
-        partition_size = math.floor(self.size / n_partitions)
+        partition_size = int(math.floor(self.size / n_partitions))
 
         for n in range(partition_size, self.size + 1, partition_size):
             if self.learn_start <= n <= self.priority_size:
@@ -63,13 +63,13 @@ class Experience(object):
                 # strata_ends keep each segment start pos and end pos
                 cdf = np.cumsum(distribution['pdf'])
                 strata_ends = {1: 0, self.batch_size + 1: n}
-                step = 1 / self.batch_size
+                step = 1 / float(self.batch_size)
                 index = 1
                 for s in range(2, self.batch_size + 1):
                     while cdf[index] < step:
                         index += 1
                     strata_ends[s] = index
-                    step += 1 / self.batch_size
+                    step += 1 / float(self.batch_size)
 
                 distribution['strata_ends'] = strata_ends
 
