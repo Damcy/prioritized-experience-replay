@@ -41,10 +41,10 @@ class BinaryHeap(object):
             return 'No element in heap!'
         to_string = ''
         level = -1
-        max_level = math.floor(math.log(self.size, 2))
+        max_level = int(math.floor(math.log(self.size, 2)))
 
         for i in range(1, self.size + 1):
-            now_level = math.floor(math.log(i, 2))
+            now_level = int(math.floor(math.log(i, 2)))
             if level != now_level:
                 to_string = to_string + ('\n' if level != -1 else '') \
                             + '    ' * (max_level - now_level)
@@ -209,7 +209,7 @@ class BinaryHeap(object):
             self.e2p[e_id] = cnt
             cnt += 1
         # sort the heap
-        for i in range(math.floor(self.size / 2), 1, -1):
+        for i in range(int(math.floor(self.size / 2)), 1, -1):
             self.down_heap(i)
 
     def priority_to_experience(self, priority_ids):
